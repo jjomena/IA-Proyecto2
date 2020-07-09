@@ -29,9 +29,11 @@ class priorityQueue:
 
 
 class ctNode:
-    def __init__(self, city, distance):
+    def __init__(self, city, distance,roadState,danger):
         self.city = str(city)
         self.distance = str(distance)
+        self.roadState = str(roadState)
+        self.danger = str(danger)
 
 
 romania = {}
@@ -44,8 +46,10 @@ def makedict():
         ct1 = line[0]
         ct2 = line[1]
         dist = int(line[2])
-        romania.setdefault(ct1, []).append(ctNode(ct2, dist))
-        romania.setdefault(ct2, []).append(ctNode(ct1, dist))
+        rdState = int(line[3])
+        dger = int(line[4])
+        romania.setdefault(ct1, []).append(ctNode(ct2, dist, rdState, dger))
+        romania.setdefault(ct2, []).append(ctNode(ct1, dist, rdState, dger))
 
 
 def makehuristikdict():
@@ -60,6 +64,7 @@ def makehuristikdict():
 
 
 def heuristic(node, values):
+    print ("Valor Nodo: "+str(values[node]))
     return values[node]
 
 
@@ -84,7 +89,8 @@ def astar(start, end):
         for new in romania[current]:
             g_cost = distance[current] + int(new.distance)
 
-            # print(new.city, new.distance, "now : " + str(distance[current]), g_cost)
+            #print("Costo Actual \n")
+            #print(new.city, new.distance, "now : " + str(distance[current]), g_cost)
 
             if (new.city not in distance or g_cost < distance[new.city]):
                 distance[new.city] = g_cost
