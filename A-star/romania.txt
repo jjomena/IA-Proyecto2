@@ -1,8 +1,8 @@
 Arad,Zerind, 75,6,5
 Arad,Sibiu, 140,5,4
 Arad,Timisoara, 118,5,3
-Zerind,Oradea, 71,6,4,
-Oradea,Sibiu, 1516,3
+Zerind,Oradea, 71,6,4
+Oradea,Sibiu, 151,6,3
 Timisoara,Lugoj, 111,6,3
 Sibiu,Fagaras, 99,7,2
 Sibiu,Rimnicu Vilcea, 80,6,2

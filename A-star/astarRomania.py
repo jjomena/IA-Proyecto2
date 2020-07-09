@@ -94,10 +94,10 @@ def astar(start, end):
 
             #print("Costo Actual \n")
             #print(new.city, new.distance, "now : " + str(distance[current]), g_cost)
-
+            #variante(new.roadState, new.danger, int(new.distance))
             if (new.city not in distance or g_cost < distance[new.city]):
                 distance[new.city] = g_cost
-                f_cost = g_cost + heuristic(new.city, h) + variante(estado, seguridad, distancia)
+                f_cost = g_cost + heuristic(new.city, h) + variante(int(new.roadState), int(new.danger), int(new.distance))
                 q.push(new.city, f_cost)
                 path[new.city] = current
 
