@@ -58,6 +58,9 @@ def makehuristikdict():
             h[node] = sld
     return h
 
+def variante(estado, seguridad, distancia):
+
+    return (pow(seguridad, 2) * distancia)/estado;
 
 def heuristic(node, values):
     return values[node]
@@ -88,7 +91,7 @@ def astar(start, end):
 
             if (new.city not in distance or g_cost < distance[new.city]):
                 distance[new.city] = g_cost
-                f_cost = g_cost + heuristic(new.city, h)
+                f_cost = g_cost + heuristic(new.city, h) + variante(estado, seguridad, distancia)
                 q.push(new.city, f_cost)
                 path[new.city] = current
 
