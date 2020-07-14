@@ -1,10 +1,3 @@
-#
-#   Created by PyCharm.
-#   User: Rizky Andre Wibisono
-#   Date: 17/03/2019
-#   Time: 20:59
-#
-
 import heapq
 
 
@@ -63,7 +56,6 @@ def makehuristikdict():
     return h
 
 def variante(estado, seguridad, distancia):
-
     return (pow(seguridad, 2) * distancia)/estado;
 
 def heuristic(node, values):
