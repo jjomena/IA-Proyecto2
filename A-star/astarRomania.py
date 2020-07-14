@@ -59,7 +59,6 @@ def variante(estado, seguridad, distancia):
     return (pow(seguridad, 2) * distancia)/estado;
 
 def heuristic(node, values):
-    print ("Valor Nodo: "+str(values[node]))
     return values[node]
 
 
@@ -84,12 +83,12 @@ def astar(start, end):
         for new in romania[current]:
             g_cost = distance[current] + int(new.distance)
 
-            #print("Costo Actual \n")
             #print(new.city, new.distance, "now : " + str(distance[current]), g_cost)
             #variante(new.roadState, new.danger, int(new.distance))
             if (new.city not in distance or g_cost < distance[new.city]):
                 distance[new.city] = g_cost
-                f_cost = g_cost + heuristic(new.city, h) + variante(int(new.roadState), int(new.danger), int(new.distance))
+                #f_cost = g_cost + heuristic(new.city, h) + variante(int(new.roadState), int(new.danger), int(new.distance))
+                f_cost = g_cost + heuristic(new.city, h)
                 q.push(new.city, f_cost)
                 path[new.city] = current
 
@@ -106,10 +105,10 @@ def printoutput(start, end, path, distance, expandedlist):
     finalpath.append(start)
     finalpath.reverse()
     print("Programa A* Rumania")
-    print("\tArad => Bucharest")
-    print("=======================================================")
-    print("Ciudades que pueden ser exploradas \t\t: " + str(expandedlist))
-    print("Posible numero de ciudades \t\t: " + str(len(expandedlist)))
+    #print("\tArad => Bucharest")
+    #print("=======================================================")
+    #print("Ciudades que pueden ser exploradas \t\t: " + str(expandedlist))
+    #print("Posible numero de ciudades \t\t: " + str(len(expandedlist)))
     print("=======================================================")
     print("La ciudad que se recorre con la distancia más corta.\t: " + str(finalpath))
     print("Número de ciudades atravesadas \t\t\t: " + str(len(finalpath)))
